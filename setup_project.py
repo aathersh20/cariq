@@ -1,4 +1,4 @@
-"""
+﻿"""
 Run this once to create all project files automatically.
     python setup_project.py
 """
@@ -12,7 +12,7 @@ os.makedirs("data/final", exist_ok=True)
 os.makedirs("dashboards", exist_ok=True)
 os.makedirs("models", exist_ok=True)
 
-# ── clean_data.py ─────────────────────────────────────────────────────────────
+# â”€â”€ clean_data.py â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 open("scripts/clean_data.py", "w").write('''
 import re, pandas as pd
 from pathlib import Path
@@ -28,7 +28,7 @@ def clean_price(val):
     val = str(val).lower().strip()
     if any(x in val for x in ["request","nan","none",""]):
         return None
-    val = val.replace(",","").replace("₹","").strip()
+    val = val.replace(",","").replace("â‚¹","").strip()
     if "lakh" in val or "lac" in val:
         num = re.sub(r"[^\\d.]","",val)
         return float(num)*100_000 if num else None
@@ -106,9 +106,9 @@ def main():
 if __name__ == "__main__":
     main()
 ''')
-print("✓ scripts/clean_data.py")
+print("âœ“ scripts/clean_data.py")
 
-# ── eda.py ────────────────────────────────────────────────────────────────────
+# â”€â”€ eda.py â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 open("scripts/eda.py", "w").write('''
 import pandas as pd
 import matplotlib
@@ -175,7 +175,7 @@ def main():
     h1{{text-align:center;color:#1e3a5f}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:20px}}
     .card{{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}}
     .card h3{{color:#1e3a5f;margin:0 0 12px}}.card img{{width:100%;border-radius:8px}}</style></head>
-    <body><h1>CarWale EDA Report — {len(df):,} listings</h1><div class="grid">{imgs}</div></body></html>"""
+    <body><h1>CarWale EDA Report â€” {len(df):,} listings</h1><div class="grid">{imgs}</div></body></html>"""
     html_path.write_text(html, encoding="utf-8")
     print(f"Report saved -> {html_path}")
     print("Open dashboards/eda_report.html in your browser!")
@@ -183,9 +183,9 @@ def main():
 if __name__ == "__main__":
     main()
 ''')
-print("✓ scripts/eda.py")
+print("âœ“ scripts/eda.py")
 
-# ── train_model.py ────────────────────────────────────────────────────────────
+# â”€â”€ train_model.py â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 open("scripts/train_model.py", "w").write('''
 import json, pickle
 import pandas as pd
@@ -244,9 +244,9 @@ def main():
 if __name__ == "__main__":
     main()
 ''')
-print("✓ scripts/train_model.py")
+print("âœ“ scripts/train_model.py")
 
-# ── app.py ────────────────────────────────────────────────────────────────────
+# â”€â”€ app.py â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 open("app.py", "w").write('''
 import json, pickle
 import pandas as pd
@@ -353,9 +353,9 @@ def analytics():
 if __name__ == "__main__":
     app.run(debug=True)
 ''')
-print("✓ app.py")
+print("âœ“ app.py")
 
-# ── templates ─────────────────────────────────────────────────────────────────
+# â”€â”€ templates â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 open("templates/base.html","w").write("""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -377,7 +377,7 @@ body{background:#f8fafc;font-family:'Segoe UI',sans-serif}
 <body>
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="/">🚗 CarIQ</a>
+    <a class="navbar-brand" href="/">ðŸš— CarIQ</a>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -388,12 +388,12 @@ body{background:#f8fafc;font-family:'Segoe UI',sans-serif}
   </div>
 </nav>
 {% block content %}{% endblock %}
-<footer class="text-center py-4 mt-5 text-muted small">Built with Python · Flask · Scikit-learn</footer>
+<footer class="text-center py-4 mt-5 text-muted small">Built with Python Â· Flask Â· Scikit-learn</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 {% block extra_js %}{% endblock %}
 </body>
 </html>""")
-print("✓ templates/base.html")
+print("âœ“ templates/base.html")
 
 open("templates/index.html","w").write("""{% extends "base.html" %}
 {% block title %}Home{% endblock %}
@@ -425,7 +425,7 @@ open("templates/index.html","w").write("""{% extends "base.html" %}
 </div>
 {% endif %}
 {% endblock %}""")
-print("✓ templates/index.html")
+print("âœ“ templates/index.html")
 
 open("templates/predict.html","w").write("""{% extends "base.html" %}
 {% block title %}Predict Price{% endblock %}
@@ -486,7 +486,7 @@ open("templates/predict.html","w").write("""{% extends "base.html" %}
   </div>
 </div>
 {% endblock %}""")
-print("✓ templates/predict.html")
+print("âœ“ templates/predict.html")
 
 open("templates/analytics.html","w").write("""{% extends "base.html" %}
 {% block title %}Analytics{% endblock %}
@@ -522,9 +522,9 @@ if(data.transmission){pie("transChart",Object.keys(data.transmission),Object.val
 if(data.depreciation){const s=Object.entries(data.depreciation).sort((a,b)=>+a[0]-+b[0]);new Chart(document.getElementById("depChart"),{type:"line",data:{labels:s.map(e=>e[0]+" yrs"),datasets:[{data:s.map(e=>e[1]),borderColor:"#dc2626",backgroundColor:"rgba(220,38,38,.08)",tension:0.4,fill:true}]},options:{plugins:{legend:{display:false}}}})}
 </script>
 {% endblock %}""")
-print("✓ templates/analytics.html")
+print("âœ“ templates/analytics.html")
 
-print("\n✅ ALL FILES CREATED SUCCESSFULLY!")
+print("\nâœ… ALL FILES CREATED SUCCESSFULLY!")
 print("Now run these commands one by one:")
 print("  pip install -r requirements.txt")
 print("  python scripts/clean_data.py")
